@@ -1,0 +1,17 @@
+<div>
+    <div class="flex justify-center ">
+        <div class="w-64 h-64">
+            <img class="w-full h-full object-contain" src="./../../../assets/imagenfooter.png" alt="">
+        </div>
+    </div>
+    <div class="h-[150px] bg-gray-200 p-2 " >
+        <div class="flex flex-wrap justify-evenly gap-x-20 mt-10">
+          <div class="border-r-2 border-l-2 border-black px-2 mb-4" *ngFor="let section of sections">
+            <a [routerLink]="section.route"
+               class="text-gray-800 hover:bg-gray-300 px-3 py-2 rounded-md text-lg font-medium uppercase">
+              {{ section.label }}
+            </a>
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,38 @@
+<nav class="bg-gray-200 ">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center justify-center h-[75px]">
+      <a href="#" class=" h-full">
+        <img src="./../../../assets/icononavbar.png" alt="Brand Logo" class="w-full h-full object-contain">
+      </a>
+    </div>
+
+    <!-- Botón menú hamburguesa para pantallas pequeñas -->
+    <div class="md:hidden">
+      <button (click)="toggleMenu()" class="text-gray-800"> <!-- Cambié el color del icono -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Links en pantallas grandes -->
+    <div class="hidden md:flex space-x-4">
+      <a *ngFor="let section of sections"
+         [routerLink]="section.route"
+         class="text-gray-800 hover:bg-gray-300 px-3 py-2 rounded-md text-sm font-medium">
+        {{ section.label }}
+      </a>
+    </div>
+  </div>
+
+  <!-- Menu desplegable en pantallas pequeñas -->
+  <div *ngIf="isMenuOpen" class="md:hidden bg-gray-200">
+    <div *ngFor="let section of sections" class="px-2 pt-2 pb-3 space-y-1">
+      <a [routerLink]="section.route"
+         class="text-gray-800 block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-300">
+        {{ section.label }}
+      </a>
+    </div>
+  </div>
+</nav>
